@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_annonces"
+            android:icon="@drawable/ic_perm_media"
+            android:title="Mes annonces" />
+        <item
+            android:id="@+id/nav_add_annonce"
+            android:icon="@drawable/ic_add_circle"
+            android:title="Ajouter une annonce" />
+        <item
+            android:id="@+id/nav_edit_zone"
+            android:icon="@drawable/earth_16px"
+            android:title="Modifier la zone de détection de votre magasin" />
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/ic_person_outline_black_24dp"
+                android:title="Modifier mon profile" />
+
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.marouane.gestionstockmysql.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="260dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ListView
+            android:id="@+id/products_lv"
+            android:layout_width="match_parent"
+            android:layout_height="306dp">
+
+        </ListView>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#ACACAC" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#ACACAC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="0.3"
+                android:padding="20dp"
+                android:text="Votre total (sans réduction) :"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:padding="20dp"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#ACACAC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="0.3"
+                android:padding="20dp"
+                android:text="Nombre de Produit :"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/nbrProd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="20dp"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#ACACAC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="0.3"
+                android:padding="20dp"
+                android:text="Total finale (aprés réduction) :"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/finalTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:padding="20dp"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#ACACAC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/validate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#003f4b"
+                android:text="Valider l'achat"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#ACACAC" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
