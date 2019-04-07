@@ -53,7 +53,7 @@ public class StoreRecyclerViewAdapter extends RecyclerView.Adapter<StoreRecycler
         });
 
         holder.itemTitle.setText(items.get(position).getName());
-        String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + items.get(position).getLogo();
+        String imageUrl = LoginActivity.serverIP + "/resources/images/" + items.get(position).getLogo();
         loadImageToImageView(imageUrl, holder.itemImage);
     }
 

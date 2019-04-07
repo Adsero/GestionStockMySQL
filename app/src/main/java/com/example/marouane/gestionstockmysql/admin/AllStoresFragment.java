@@ -64,7 +64,7 @@ public class AllStoresFragment extends Fragment {
 
         ConnectClass con = new ConnectClass("fill");
         con.execute(
-                "http://" + LoginActivity.serverIP + "/GestionStock/Magasin/getAll.php");
+                LoginActivity.serverIP + "/Magasin/getAll.php");
 
 
         storesLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -97,7 +97,7 @@ public class AllStoresFragment extends Fragment {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 // Instantiate the RequestQueue.
                                                 RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                                                String url = "http://" + LoginActivity.serverIP + "/GestionStock/Magasin/delete.php?id=" + allStores.get(position).getId();
+                                                String url = LoginActivity.serverIP + "/Magasin/delete.php?id=" + allStores.get(position).getId();
 
                                                 // Request a string response from the provided URL.
                                                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -253,7 +253,7 @@ public class AllStoresFragment extends Fragment {
             nom.setText(store.getName());
             desc.setText(store.getGeo());
 
-            String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + store.getLogo();
+            String imageUrl = LoginActivity.serverIP + "/resources/images/" + store.getLogo();
             loadImageToImageView(imageUrl, img);
 
             return row;

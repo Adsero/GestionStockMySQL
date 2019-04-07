@@ -31,7 +31,7 @@ import Models.Produit;
 public class LoginActivity extends AppCompatActivity {
 
     // Specifier ici le serveur contenant les script PHP
-    public final static String serverIP = "192.168.1.7";
+    public final static String serverIP = "https://adsero.herokuapp.com";
 
     public static ArrayList<Produit> panier = new ArrayList<>();
 
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         ClientConnectClass con = new ClientConnectClass("login");
                         con.execute(
-                                "http://" + serverIP + "/GestionStock/Annonceur/getUserByLoginAndPass.php?login=" + cli.getLogin() + "&pass=" + cli.getPass());
+                                serverIP + "/Annonceur/getUserByLoginAndPass.php?login=" + cli.getLogin() + "&pass=" + cli.getPass());
 
                     }
                 } else {

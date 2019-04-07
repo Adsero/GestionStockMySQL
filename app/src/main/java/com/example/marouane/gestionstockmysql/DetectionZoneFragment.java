@@ -148,7 +148,7 @@ public class DetectionZoneFragment extends Fragment {
 
                         // Instantiate the RequestQueue.
                         RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                        String url = "http://" + LoginActivity.serverIP + "/GestionStock/Magasin/updateZone.php";
+                        String url = LoginActivity.serverIP + "/Magasin/updateZone.php";
 
                         // Request a string response from the provided URL.
                         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -201,7 +201,7 @@ public class DetectionZoneFragment extends Fragment {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        String url = "http://" + LoginActivity.serverIP + "/GestionStock/Annonceur/getOwnersMagasin.php";
+        String url = LoginActivity.serverIP + "/Annonceur/getOwnersMagasin.php";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

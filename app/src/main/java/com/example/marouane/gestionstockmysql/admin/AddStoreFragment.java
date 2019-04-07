@@ -105,7 +105,7 @@ public class AddStoreFragment extends Fragment {
 
                                     // Instantiate the RequestQueue.
                                     RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                                    String url = "http://" + LoginActivity.serverIP + "/GestionStock/Magasin/add.php";
+                                    String url = LoginActivity.serverIP + "/Magasin/add.php";
 
                                     // Request a string response from the provided URL.
                                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

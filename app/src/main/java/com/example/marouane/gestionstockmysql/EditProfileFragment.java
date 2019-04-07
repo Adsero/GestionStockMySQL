@@ -97,13 +97,13 @@ public class EditProfileFragment extends Fragment {
                     }
                     if (pwd.getText().toString().equals(pwd2nd.getText().toString())) {
                         new ClientConnectClass("updateProfile")
-                                .execute("http://" + LoginActivity.serverIP + "/GestionStock/Annonceur/update.php?" +
+                                .execute(LoginActivity.serverIP + "/Annonceur/update.php?" +
                                         "id=" + annonceur.getIdAnnonceur() +
                                         "&name=" + annonceur.getNom() +
                                         "&lastname=" + annonceur.getPrenom() +
                                         "&login=" + annonceur.getLogin() +
                                         "&pass=" + annonceur.getPass());
-                        System.out.println("http://" + LoginActivity.serverIP + "/GestionStock/Annonceur/update.php?id=" + annonceur.getIdAnnonceur() + "&name=" + annonceur.getNom() + "&lastname=" + annonceur.getPrenom() + "&login=" + annonceur.getLogin() + "&pass=" + annonceur.getPass());
+                        System.out.println(LoginActivity.serverIP + "/Annonceur/update.php?id=" + annonceur.getIdAnnonceur() + "&name=" + annonceur.getNom() + "&lastname=" + annonceur.getPrenom() + "&login=" + annonceur.getLogin() + "&pass=" + annonceur.getPass());
                     } else {
                         Toast.makeText(getContext(), "La confirmation de votre pass a été échoué !", Toast.LENGTH_LONG).show();
                     }

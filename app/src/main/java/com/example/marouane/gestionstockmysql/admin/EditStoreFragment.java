@@ -74,7 +74,7 @@ public class EditStoreFragment extends Fragment {
 
         annonceur = null;
 
-        String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + store.getLogo();
+        String imageUrl = LoginActivity.serverIP + "/resources/images/" + store.getLogo();
         loadImageToImageView(imageUrl, logo);
 
         name.setText(store.getName());
@@ -110,7 +110,7 @@ public class EditStoreFragment extends Fragment {
 
                                     // Instantiate the RequestQueue.
                                     RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                                    String url = "http://" + LoginActivity.serverIP + "/GestionStock/Magasin/update.php";
+                                    String url = LoginActivity.serverIP + "/Magasin/update.php";
 
                                     // Request a string response from the provided URL.
                                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

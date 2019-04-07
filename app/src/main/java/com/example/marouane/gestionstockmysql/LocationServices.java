@@ -66,7 +66,7 @@ public class LocationServices extends Service {
                 // Get the nearby Stores products...
                 ProduitConnectClass con = new ProduitConnectClass("notify");
                 con.execute(
-                        "http://" + LoginActivity.serverIP + "/GestionStock/Produit/getNearbyProds.php?lat=" + location.getLatitude() + "&lng=" + location.getLongitude());
+                        LoginActivity.serverIP + "/Produit/getNearbyProds.php?lat=" + location.getLatitude() + "&lng=" + location.getLongitude());
 
 
                 /* This code will be executed after the return of the AsyncTask*/

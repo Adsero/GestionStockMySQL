@@ -59,7 +59,7 @@ public class ArrLstAdapt extends ArrayAdapter<Produit> {
         prix.setText("MAD " + pd.getPrix());
         qte.setText(pd.timeAgo());
 
-        String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + pd.getImages();
+        String imageUrl = LoginActivity.serverIP + "/resources/images/" + pd.getImages();
         loadImageToImageView(imageUrl, img);
 
         return row;

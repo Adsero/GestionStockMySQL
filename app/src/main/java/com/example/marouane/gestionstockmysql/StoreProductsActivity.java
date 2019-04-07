@@ -57,7 +57,7 @@ public class StoreProductsActivity extends AppCompatActivity {
         Store store = getIntent().getParcelableExtra("store");
 
         storeTitle.setText(store.getName());
-        String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + store.getLogo();
+        String imageUrl = LoginActivity.serverIP + "/resources/images/" + store.getLogo();
         loadImageToImageView(imageUrl, storeLogo);
 
 
@@ -78,7 +78,7 @@ public class StoreProductsActivity extends AppCompatActivity {
 
         ProduitConnectClass con = new ProduitConnectClass("fillProds");
         con.execute(
-                "http://" + LoginActivity.serverIP + "/GestionStock/Produit/getStoresProducts.php?id="+store.getId());
+                LoginActivity.serverIP + "/Produit/getStoresProducts.php?id="+store.getId());
 
     }
 

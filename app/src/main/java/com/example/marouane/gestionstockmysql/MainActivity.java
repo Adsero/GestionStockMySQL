@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         ProduitConnectClass con = new ProduitConnectClass("fillProds");
         con.execute(
-                "http://" + LoginActivity.serverIP + "/GestionStock/Produit/getAll.php");
+                LoginActivity.serverIP + "/Produit/getAll.php");
 
         prodsLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
         ConnectClass conn = new ConnectClass("fill");
         conn.execute(
-                "http://" + LoginActivity.serverIP + "/GestionStock/Magasin/getAll.php");
+                LoginActivity.serverIP + "/Magasin/getAll.php");
 
     }
 

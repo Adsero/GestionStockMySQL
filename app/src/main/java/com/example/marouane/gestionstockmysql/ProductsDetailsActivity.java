@@ -63,9 +63,9 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         pd.setSeenMark(this, Produit.SEEN);
         ProduitConnectClass con = new ProduitConnectClass("fillOneProduct");
         con.execute(
-                "http://" + LoginActivity.serverIP + "/GestionStock/Produit/getOne.php?id=" + pd.getIdProd());
+                LoginActivity.serverIP + "/Produit/getOne.php?id=" + pd.getIdProd());
 
-        String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + pd.getImages();
+        String imageUrl = LoginActivity.serverIP + "/resources/images/" + pd.getImages();
 
         loadImageToImageView(imageUrl, imgProd);
 

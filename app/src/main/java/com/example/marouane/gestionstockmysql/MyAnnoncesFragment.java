@@ -63,7 +63,7 @@ public class MyAnnoncesFragment extends Fragment {
         ProduitConnectClass con = new ProduitConnectClass("fillProds");
         if (annonceur != null) {
             con.execute(
-                    "http://" + LoginActivity.serverIP + "/GestionStock/Produit/getAnnonceurAnnonces.php?id=" + annonceur.getIdAnnonceur() + "");
+                    LoginActivity.serverIP + "/Produit/getAnnonceurAnnonces.php?id=" + annonceur.getIdAnnonceur() + "");
         } else {
             Toast.makeText(v.getContext(), "Une erreur s'est produite, ressayer plus tard...", Toast.LENGTH_LONG).show();
         }
@@ -100,7 +100,7 @@ public class MyAnnoncesFragment extends Fragment {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 // Instantiate the RequestQueue.
                                                 RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                                                String url = "http://" + LoginActivity.serverIP + "/GestionStock/Produit/delete.php?id=" + allProds.get(position).getIdProd();
+                                                String url = LoginActivity.serverIP + "/Produit/delete.php?id=" + allProds.get(position).getIdProd();
 
                                                 // Request a string response from the provided URL.
                                                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

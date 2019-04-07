@@ -66,7 +66,7 @@ public class EditAnnonceFragment extends Fragment {
 
         btnEdit = v.findViewById(R.id.btnEdit);
 
-        String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + prod.getImages();
+        String imageUrl = LoginActivity.serverIP + "/resources/images/" + prod.getImages();
         loadImageToImageView(imageUrl, imgProd);
 
         nom.setText(prod.getNom());
@@ -91,7 +91,7 @@ public class EditAnnonceFragment extends Fragment {
 
                                 // Instantiate the RequestQueue.
                                 RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                                String url = "http://" + LoginActivity.serverIP + "/GestionStock/Produit/update.php";
+                                String url = LoginActivity.serverIP + "/Produit/update.php";
 
                                 Toast.makeText(v.getContext(), "PRODUCT " + desc.getText(), Toast.LENGTH_LONG).show();
 

@@ -92,8 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
                     if (pwd.getText().toString().equals(pwd2nd.getText().toString())) {
                         ClientConnectClass con = new ClientConnectClass("loginCheck");
                         con.execute(
-                                "http://" + LoginActivity.serverIP + "/GestionStock/Annonceur/getUserByLoginAndPass.php?login=" + annonceur.getLogin() + "&pass=" + annonceur.getPass());
-                        System.out.println("http://" + LoginActivity.serverIP + "/GestionStock/Annonceur/getUserByLoginAndPass.php?login=" + annonceur.getLogin() + "&pass=" + annonceur.getPass());
+                                LoginActivity.serverIP + "/Annonceur/getUserByLoginAndPass.php?login=" + annonceur.getLogin() + "&pass=" + annonceur.getPass());
+                        System.out.println(LoginActivity.serverIP + "/Annonceur/getUserByLoginAndPass.php?login=" + annonceur.getLogin() + "&pass=" + annonceur.getPass());
                     } else {
                         Toast.makeText(RegisterActivity.this, "La confirmation de votre pass a été échoué !", Toast.LENGTH_LONG).show();
                     }
@@ -216,7 +216,7 @@ public class RegisterActivity extends AppCompatActivity {
             gregorianCal.setTime(annonceur.getDate_naiss());
 
             new ClientConnectClass("insertUser").execute(
-                    "http://" + LoginActivity.serverIP + "/GestionStock/Annonceur/add.php?id=" + annonceur.getIdAnnonceur() +
+                    LoginActivity.serverIP + "/Annonceur/add.php?id=" + annonceur.getIdAnnonceur() +
                             "&name=" + annonceur.getNom() +
                             "&lastname=" + annonceur.getPrenom() +
                             "&login=" + annonceur.getLogin() +

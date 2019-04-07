@@ -81,7 +81,7 @@ public class AddAnnonceFragment extends Fragment {
 
                                 // Instantiate the RequestQueue.
                                 RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                                String url = "http://" + LoginActivity.serverIP + "/GestionStock/Produit/add.php";
+                                String url = LoginActivity.serverIP + "/Produit/add.php";
 
                                 // Request a string response from the provided URL.
                                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

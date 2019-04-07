@@ -112,7 +112,7 @@ public class AnnonceurActivity extends AppCompatActivity {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://" + LoginActivity.serverIP + "/GestionStock/Annonceur/getOwnersMagasin.php";
+        String url = LoginActivity.serverIP + "/Annonceur/getOwnersMagasin.php";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -164,7 +164,7 @@ public class AnnonceurActivity extends AppCompatActivity {
 
     public void initStoreInfo() {
         try {
-            String imageUrl = "http://" + LoginActivity.serverIP + "/GestionStock/resources/images/" + store.getLogo();
+            String imageUrl = LoginActivity.serverIP + "/resources/images/" + store.getLogo();
             loadImageToImageView(imageUrl, logo);
 
             title.setText(store.getName());
