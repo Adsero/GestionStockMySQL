@@ -53,6 +53,9 @@ public class AddAnnonceFragment extends Fragment {
     private final int IMG_REQUEST = 1;
     private Bitmap bitmap;
 
+    ProgressDialog pDialog;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -75,7 +78,6 @@ public class AddAnnonceFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                final ProgressDialog pDialog;
                                 pDialog = new ProgressDialog(v.getContext());
                                 pDialog.setMessage("Chargement...");
                                 pDialog.setIndeterminate(false);
@@ -127,11 +129,11 @@ public class AddAnnonceFragment extends Fragment {
                                     }
                                 };
 
-                                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                                        500000,
-                                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
-                                ));
+//                                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+//                                        60000,
+//                                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//                                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+//                                ));
 
                                 // Add the request to the RequestQueue.
                                 queue.add(stringRequest);

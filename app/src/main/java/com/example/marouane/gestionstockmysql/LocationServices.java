@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -34,7 +36,7 @@ import Models.Produit;
 
 public class LocationServices extends Service {
     public static final String CHANNEL_ID = "NotificationChannel";
-    public static final int NOTIFICATION_TIMEOUT = 5000;
+    public static final int NOTIFICATION_TIMEOUT = 10000;
 
     private LocationManager locationManager;
     private LocationListener listener;
@@ -53,7 +55,6 @@ public class LocationServices extends Service {
     @SuppressLint("MissingPermission")
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -182,7 +183,7 @@ public class LocationServices extends Service {
         try {
             for (int i = 0; i < allRecords.size(); i++) {
                 Produit p = allRecords.get(i);
-                System.out.println("Is Seen ? >> " + !p.isSeen(this));
+                System.out.println("Is the product " + p.getNom() + " seen yet ? >> " + p.isSeen(this));
                 if (!p.isSeen(this)) {
                     // Send a notification directly from the Background Service
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(LocationServices.this, CHANNEL_ID)
@@ -191,6 +192,9 @@ public class LocationServices extends Service {
                             .setContentText(String.valueOf(p.getPrix() + " DHs"))
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setAutoCancel(true);
+
+                    Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    builder.setSound(alarmSound);
 
                     Intent intent = new Intent(this, ProductsDetailsActivity.class);
                     Bundle bundle = new Bundle();

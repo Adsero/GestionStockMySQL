@@ -38,6 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -126,8 +127,70 @@ public class MainActivity extends AppCompatActivity {
     private void startService() {
         Intent i = new Intent(getApplicationContext(), LocationServices.class);
         ContextCompat.startForegroundService(this, i);
+        System.out.println("Starting background location service...");
+        try {
+            JSONArray all = new JSONArray(readFromFile(this, "history.txt"));
+            for (int j = 0; j < all.length(); j++) {
+                JSONObject object = all.getJSONObject(j);
+                System.out.println("Product : " + object.getInt(String.valueOf("id")) + " is seen " + object.getInt(String.valueOf("seen")));
+            }
+            System.out.println(all.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 //        startService(i);
 //        stopService(i);
+    }
+
+
+    private String readFromFile(Context context, String path) {
+        createTheFileIfNotExists(context, path);
+        String ret = "";
+
+        try {
+            InputStream inputStream = context.openFileInput(path);
+
+            if (inputStream != null) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ((receiveString = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        } catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
+
+        return ret;
+    }
+
+
+    private void createTheFileIfNotExists(Context context, String name) {
+        File file = new File(context.getFilesDir(), name);
+        if (!file.exists()) {
+            writeToFile("[]", context, name);
+            System.out.println("111111111111111111111111111111111 > the file exists !!");
+        }
+    }
+
+
+    private void writeToFile(String data, Context context, String path) {
+        createTheFileIfNotExists(context, path);
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(path, Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+        } catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
     }
 
     private boolean runtime_permissions() {

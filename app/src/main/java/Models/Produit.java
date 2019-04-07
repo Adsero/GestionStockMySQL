@@ -144,14 +144,14 @@ public class Produit implements Parcelable {
                 object.put("id", this.idProd);
                 object.put("seen", seenValue);
                 all.put(object);
+                System.out.println("Marking product " + this.idProd + " as " + seenValue);
             }
-            System.out.println("################################### >> " + all.toString());
+//            System.out.println("################################### >> " + all.toString());
             writeToFile(all.toString(), context, "history.txt");
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     public boolean isSeen(Context context) {
