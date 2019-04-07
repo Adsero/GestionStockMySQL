@@ -81,6 +81,7 @@ public class AnnonceurActivity extends AppCompatActivity {
 
                     case R.id.nav_add_annonce:
                         AddAnnonceFragment addAnnonce = new AddAnnonceFragment();
+                        addAnnonce.setStore(store);
                         addAnnonce.setAnnonceur(annonceur);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, addAnnonce).commit();
                         break;

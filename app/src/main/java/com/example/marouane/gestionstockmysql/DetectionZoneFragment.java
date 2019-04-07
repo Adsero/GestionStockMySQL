@@ -93,7 +93,7 @@ public class DetectionZoneFragment extends Fragment {
                 picker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                     @Override
                     public void onValueChange(NumberPicker numberPicker, int oldVal, int newVal) {
-                        zone.setText(String.valueOf(newVal + " KM"));
+                        zone.setText(String.valueOf(newVal));
                     }
                 });
 
@@ -221,7 +221,7 @@ public class DetectionZoneFragment extends Fragment {
                             System.out.println("Une erreur emis par le serveur >> " + response);
                         }
 
-                        zone.setText(String.valueOf(store.getDetectionZone() + " KM"));
+                        zone.setText(String.valueOf(store.getDetectionZone()));
                         pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {

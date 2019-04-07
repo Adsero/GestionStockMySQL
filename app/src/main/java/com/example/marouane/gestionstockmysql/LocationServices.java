@@ -34,7 +34,7 @@ import Models.Produit;
 
 public class LocationServices extends Service {
     public static final String CHANNEL_ID = "NotificationChannel";
-    public static final int NOTIFICATION_TIMEOUT = 10000;
+    public static final int NOTIFICATION_TIMEOUT = 5000;
 
     private LocationManager locationManager;
     private LocationListener listener;
@@ -68,7 +68,7 @@ public class LocationServices extends Service {
                 con.execute(
                         LoginActivity.serverIP + "/Produit/getNearbyProds.php?lat=" + location.getLatitude() + "&lng=" + location.getLongitude());
 
-
+                System.out.println("Near >> " + LoginActivity.serverIP + "/Produit/getNearbyProds.php?lat=" + location.getLatitude() + "&lng=" + location.getLongitude());
                 /* This code will be executed after the return of the AsyncTask*/
                 // Compare with the seen ones
                 // Display the unseen products notifications
@@ -182,6 +182,7 @@ public class LocationServices extends Service {
         try {
             for (int i = 0; i < allRecords.size(); i++) {
                 Produit p = allRecords.get(i);
+                System.out.println("Is Seen ? >> " + !p.isSeen(this));
                 if (!p.isSeen(this)) {
                     // Send a notification directly from the Background Service
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(LocationServices.this, CHANNEL_ID)

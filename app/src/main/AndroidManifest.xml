@@ -17,7 +17,7 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/adsero"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@drawable/adsero"

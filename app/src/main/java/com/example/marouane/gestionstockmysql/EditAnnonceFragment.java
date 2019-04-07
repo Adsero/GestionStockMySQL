@@ -111,6 +111,7 @@ public class EditAnnonceFragment extends Fragment {
                                                     fragmentTransaction.commit();
                                                 } else {
                                                     Toast.makeText(v.getContext(), "Une erreur emis par le serveur >> " + response, Toast.LENGTH_LONG).show();
+                                                    System.out.println("Response >> " + response);
                                                 }
                                                 pDialog.dismiss();
                                             }

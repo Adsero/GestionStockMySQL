@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,12 +35,14 @@ import java.util.Map;
 
 import Models.Annonceur;
 import Models.Produit;
+import Models.Store;
 
 import static android.app.Activity.RESULT_OK;
 
 public class AddAnnonceFragment extends Fragment {
 
     Annonceur annonceur;
+    Store store;
     Produit prod;
     View v;
 
@@ -99,6 +102,7 @@ public class AddAnnonceFragment extends Fragment {
                                                     fragmentTransaction.commit();
                                                 } else {
                                                     Toast.makeText(v.getContext(), "Une erreur émise par le serveur >>" + response, Toast.LENGTH_LONG).show();
+                                                    System.out.println("Response >> " + response);
                                                 }
                                                 pDialog.dismiss();
                                             }
@@ -116,11 +120,18 @@ public class AddAnnonceFragment extends Fragment {
                                         params.put("nom", String.valueOf(nom.getText()));
                                         params.put("prix", String.valueOf(prix.getText()));
                                         params.put("description", String.valueOf(desc.getText()));
+                                        params.put("store", String.valueOf(store.getId()));
                                         params.put("images", String.valueOf(imageToString(bitmap)));
 
                                         return params;
                                     }
                                 };
+
+                                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                                        500000,
+                                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                                ));
 
                                 // Add the request to the RequestQueue.
                                 queue.add(stringRequest);
@@ -170,6 +181,10 @@ public class AddAnnonceFragment extends Fragment {
 
     public void setAnnonceur(Annonceur annonceur) {
         this.annonceur = annonceur;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     private String imageToString(Bitmap bitmap) {
